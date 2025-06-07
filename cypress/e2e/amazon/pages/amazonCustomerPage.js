@@ -2,40 +2,40 @@ class AmazonCustomerPage {
 
 
     elements = {
-        trackPackage: () => cy.contains("Track your package"),
-        whereMyStuff: () => cy.contains("Where's"),
-        helpWithSignIn: () => cy.contains("Help with signing in"),
+        trackPackageButton: () => cy.contains("Track your package"),
+        whereMyStuffButton: () => cy.contains("Where's"),
+        helpWithSignInButton: () => cy.contains("Help with signing in"),
         searchMenu: () => cy.get("#hubHelpSearchInput"),
         searchResults: () => cy.get('#help-result-stats'),
-        digitalService: () => cy.contains("Digital Services"),
-        yourOrders: () => cy.contains("Your Orders")
+        digitalServiceLink: () => cy.contains("Digital Services"),
+        yourOrdersLink: () => cy.contains("Your Orders")
 
     }
 
     verifyDigitalServiceButton() {
-        this.elements.digitalService()
+        this.elements.digitalServiceLink()
             .should('be.visible')
     }
 
     verifyWhereMyStuffButton() {
-        this.elements.whereMyStuff()
+        this.elements.whereMyStuffButton()
             .should('be.visible')
     }
 
     clickOnHelpSignInButton() {
-        this.elements.helpWithSignIn()
+        this.elements.helpWithSignInButton()
             .should('be.visible')
             .click()
     }
 
     clickOnTrackPackage() {
-        this.elements.trackPackage()
+        this.elements.trackPackageButton()
             .should('be.visible')
             .click()
     }
 
     verifyYourOrdersButton() {
-        this.elements.yourOrders()
+        this.elements.yourOrdersLink()
             .should('be.visible')
     }
 

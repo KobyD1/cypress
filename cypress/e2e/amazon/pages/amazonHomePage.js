@@ -2,17 +2,17 @@ class AmazonHomePage {
 
 
     elements = {
-        todaysDeals: () => cy.contains('a', "Today's Deals"),
-        customerService: () => cy.contains('a', 'Customer Service'),
-        sell: () => cy.contains('a', 'Sell'),
+        todaysDealsTab: () => cy.contains('a', "Today's Deals"),
+        customerServiceTab: () => cy.contains('a', 'Customer Service'),
+        sellTab: () => cy.contains('a', 'Sell'),
         logo: () => cy.get('#nav-logo-sprites'),
         loginButton: () => cy.contains('sign in'),
         emailButton: () => cy.get("[id*='ap_email']"), // the element ID sometimes changed
         passwordButton: () => cy.get("#ap_password"),
         continueButton: () => cy.get("#continue"),
         signInSubmit: () => cy.get('#signInSubmit'),
-        searchWelcomePage: () => cy.get('#twotabsearchtextbox'),
-        searchResultsText: () => cy.get('.s-main-slot .s-result-item'),
+        searchMenu: () => cy.get('#twotabsearchtextbox'),
+        searchResults: () => cy.get('.s-main-slot .s-result-item')
 
 
     }
@@ -30,7 +30,7 @@ class AmazonHomePage {
 
     searchForProduct(product) {
         cy.log("Searching for product: " + product)
-        this.elements.searchWelcomePage().type(product + '{enter}')
+        this.elements.searchMenu().type(product + '{enter}')
         cy.get('#nav-search-submit-button').click();
     }
 
@@ -50,7 +50,7 @@ class AmazonHomePage {
     }
 
     verifyTodaysDealsButton() {
-        this.elements.todaysDeals()
+        this.elements.todaysDealsTab()
             .should('be.visible')
             .and('have.attr', 'href')
             .then((href) => {
@@ -70,7 +70,7 @@ class AmazonHomePage {
     }
 
     verifySellLink() {
-        this.elements.sell()
+        this.elements.sellTab()
             .should('be.visible')
             .and('have.attr', 'href')
             .then((href) => {
@@ -79,7 +79,7 @@ class AmazonHomePage {
     }
 
     verifyCustomerServiceLink() {
-        this.elements.customerService()
+        this.elements.customerServiceTab()
             .should('be.visible')
             .and('have.attr', 'href')
             .then((href) => {
@@ -89,7 +89,7 @@ class AmazonHomePage {
 
     clickOnCustomerServiceLink() {
         cy.log("Clicking on Customer Service link")
-        this.elements.customerService().click({force: true});
+        this.elements.customerServiceTab().click({force: true});
     }
 
 

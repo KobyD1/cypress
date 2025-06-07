@@ -2,22 +2,22 @@ class AmazonProductPage {
 
 
     elements = {
-        addToCart: () => cy.get("#add-to-cart-button"),
+        addToCartButton: () => cy.get("#add-to-cart-button"),
         cartCountByIcon: () => cy.get('span#nav-cart-count'),
-        scissorColor: () => cy.get("#inline-twister-expander-header-color_name"),
-        goToCart: () => cy.get("#sw-gtc"),
+        scissorColorSelector: () => cy.get("#inline-twister-expander-header-color_name"),
+        goToCartButton: () => cy.get("#sw-gtc"),
 
 
     }
 
     clickOnGoToCart() {
-        this.elements.goToCart()
+        this.elements.goToCartButton()
             .should('be.visible')
             .click()
     }
 
     clickOnAddToCart() {
-        this.elements.addToCart()
+        this.elements.addToCartButton()
             .should('be.visible')
             .click({force: true})
 
@@ -28,7 +28,7 @@ class AmazonProductPage {
         cy.log('Verify for correct color selected ,colors :', expColor);
 
         cy.get("#color_name_" + index).click()
-        this.elements.scissorColor()
+        this.elements.scissorColorSelector()
             .should('include.text', expColor);
     }
 

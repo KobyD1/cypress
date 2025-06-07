@@ -5,7 +5,7 @@ class AmazonCartPage {
         cartIcon: () => cy.get("div#nav-cart-count-container"),
         cartItems: () => cy.get('.sc-list-item'),
         shippingMessage: () => cy.get('div.a-section.a-spacing-top-micro.sc-sss-box'),
-        addItem: () => cy.get('span.a-icon.a-icon-small-add')
+        addItemButton: () => cy.get('span.a-icon.a-icon-small-add')
     }
 
 
@@ -32,7 +32,7 @@ class AmazonCartPage {
     }
 
     increaseItemOnCart(index) {
-        const element = this.elements.addItem().eq(index)
+        const element = this.elements.addItemButton().eq(index)
         element.should('be.visible').click({force: true});
         cy.wait(3000)    // waiting for spinner will be removed
     }
