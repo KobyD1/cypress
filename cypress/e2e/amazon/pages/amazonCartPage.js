@@ -36,13 +36,13 @@ class AmazonCartPage {
         element.should('be.visible').click({force: true});
         cy.wait(3000)    // waiting for spinner will be removed
     }
-
-    getAndAssertFreeShippingStatus(expPattern) {
+// done VS List , the response is inconsist (2 types of messages )
+    getAndAssertShippingStatus(expPattern) {
 
         this.elements.shippingMessage()
             .should('be.visible')
             .invoke('text')
-            .should('include', expPattern)
+            .should('include', expPattern[0]||expPattern[1])
     }
 
 }

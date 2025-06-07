@@ -46,10 +46,10 @@ describe('Amazon Purches Test', () => {
         amazonCartPage.getAndAssertCartItems(Cypress.env("PRODUCT_DESCRIPTION"))
 
         // verify free shipping change VS product price
-        amazonCartPage.getAndAssertFreeShippingStatus("are not eligible for FREE Shipping")
+        amazonCartPage.getAndAssertShippingStatus(["are not eligible for FREE Shipping","are not eligible for FREE Shipping"])
         amazonCartPage.increaseItemOnCart(1)
         amazonCartPage.increaseItemOnCart(1)
-        amazonCartPage.getAndAssertFreeShippingStatus("order qualifies for FREE Shipping")
+        amazonCartPage.getAndAssertShippingStatus(["order qualifies for FREE Shipping","order qualifies for FREE Shipping"])
 
 
     })
